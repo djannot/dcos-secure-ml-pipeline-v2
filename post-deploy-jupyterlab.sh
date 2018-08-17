@@ -12,7 +12,7 @@ dcos task exec -i $task sh -c 'cat > /mnt/mesos/sandbox/JAAS_ARTIFACT.conf' < ./
 dcos task exec -i $task sh -c 'cat > /mnt/mesos/sandbox/merged.keytab.base64' < ./merged.keytab.base64
 dcos task exec -i $task sh -c 'base64 --decode /mnt/mesos/sandbox/merged.keytab.base64 > /mnt/mesos/sandbox/merged.keytab' < /dev/null
 dcos task exec -i $task sh -c '/opt/conda/bin/kinit -kt /mnt/mesos/sandbox/merged.keytab hdfs/name-0-node.hdfs.autoip.dcos.thisdcos.directory@MESOS.LAB' < /dev/null
-dcos task exec -i $task sh -c 'JAVA_HOME=/opt/jdk /opt/hadoop/bin/hdfs dfs -mkdir /user/client' < /dev/null
+dcos task exec -i $task sh -c 'JAVA_HOME=/opt/jdk /opt/hadoop/bin/hdfs dfs -mkdir -p /user/client' < /dev/null
 dcos task exec -i $task sh -c 'JAVA_HOME=/opt/jdk /opt/hadoop/bin/hdfs dfs -chown client /user/client' < /dev/null
 dcos task exec -i $task sh -c '/opt/conda/bin/kinit -kt /mnt/mesos/sandbox/merged.keytab client@MESOS.LAB' < /dev/null
 dcos task exec -i $task sh -c '/opt/mesosphere/bin/dcos cluster setup --no-check https://master.mesos --username=user1 --password=password' < /dev/null
