@@ -2,7 +2,7 @@
 <template encoding-version="1.2">
     <description></description>
     <groupId>33138959-0165-1000-648a-219386c52f93</groupId>
-    <name>TwitterKafka10HDFS</name>
+    <name>TwitterKafkaHDFS</name>
     <snippet>
         <connections>
             <id>9f638a79-ef05-3062-0000-000000000000</id>

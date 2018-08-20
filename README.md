@@ -71,6 +71,8 @@ You can see the accuracy displayed at the end of the log:
 
 ![log](images/log.png)
 
+Stop the Spark job using `dcos spark kill` to free resources.
+
 The 3 Spark jobs are using a jar file that has also been uploaded to an Amazon S3 bucket to simplify the process.
 
 The source code is available [here](https://github.com/djannot/spark-build/blob/master/tests/jobs/scala/src/main/scala/SpamHam.scala).
@@ -171,51 +173,21 @@ Login with `nifiadmin@MESOS.LAB` using the password `password`.
 
 ![nifi](images/nifi.png)
 
-Click on the top right corner, and select `Users`.
-
-![nifi-users](images/nifi-users.png)
-
-Create a new group called `admins` and select all the members.
-
-![nifi-admins](images/nifi-admins.png)
-
-Right click on the background and select `Manage access policies`
-
-![nifi-policies](images/nifi-policies.png)
-
-Create new policies to provide the necessary permissions to the `admins` group.
-
-![nifi-create-policy](images/nifi-create-policy.png)
-
-Click on the `Create` link.
-
-![nifi-create-policy2](images/nifi-create-policy2.png)
-
-Now, you can click on the icon on the top right to add users/groups.
-
-![nifi-create-policy-admins](images/nifi-create-policy-admins.png)
-
-Add the `admins` group.
-
-Use the Drop down list to follow the same steps for the following policies:
-
-- modify the component
-- view the data
-- modify the data
-
 Right click on the background.
 
 ![nifi-templates](images/nifi-templates.png)
 
-Select `Upload template` and upload the `TwitterKafka10HDFS.xml` template.
+Select `Upload template` and upload the `TwitterKafkaHDFS.xml` template.
 
-![nifi-add-template](images/nifi-add-template.png)
+![nifi-add-template](images/nifi-upload-template.png)
 
 Drag and drop the template icon and select the `TwitterKafka10HDFS.xml` template.
 
-![nifi-template](images/nifi-template.png)
+![nifi-add-template](images/nifi-add-template.png)
 
 As you can see, there are few warnings. They are corresponding to the sensitive information that can't be stored in a template.
+
+![nifi-template](images/nifi-template.png)
 
 Double click on the `PublishKafka_0_10` processor.
 

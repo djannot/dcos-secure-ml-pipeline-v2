@@ -7,7 +7,7 @@ dcos security org users grant nifi dcos:superuser full --description "grant perm
 dcos security secrets create-sa-secret --strict private-nifi.pem nifi /nifi/private-nifi
 
 # Deploy nifi
-dcos package install --yes nifi --options=options-nifi.json
+dcos package install --yes nifi --options=options-nifi.json --package-version=0.2.0-1.5.0
 
 ./check-status.sh nifi
 ./change-passwords.sh

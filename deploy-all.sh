@@ -8,3 +8,4 @@
 ./post-deploy-jupyterlab.sh
 ./deploy-edgelb.sh
 ./update-etc-hosts-for-nifi.sh
+./update-nifi-permissions.sh

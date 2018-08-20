@@ -20,7 +20,7 @@ dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id fu
 # Deploy edgelb
 dcos package repo add --index=0 edgelb-aws https://downloads.mesosphere.com/edgelb/v1.0.3/assets/stub-universe-edgelb.json
 dcos package repo add --index=0 edgelb-pool-aws https://downloads.mesosphere.com/edgelb-pool/v1.0.3/assets/stub-universe-edgelb-pool.json
-dcos package install --yes edgelb --options=options-edgelb.json
+dcos package install --yes edgelb --options=options-edgelb.json --package-version=v1.0.3
 
 sleep 10
 until dcos edgelb ping; do sleep 1; done

@@ -41,7 +41,7 @@ dcos security org users grant hdfs dcos:mesos:master:task:user:nobody create
 dcos security secrets create-sa-secret --strict private-hdfs.pem hdfs /hdfs/private-hdfs
 
 # Deploy hdfs
-dcos package install --yes hdfs --options=options-hdfs.json
+dcos package install --yes hdfs --options=options-hdfs.json --package-version=2.3.0-2.6.0-cdh5.11.0
 
 # Create the zookeeper service account
 dcos security org service-accounts keypair private-zookeeper.pem public-zookeeper.pem
@@ -59,7 +59,7 @@ dcos security org users grant zookeeper dcos:mesos:master:volume:principal:zooke
 dcos security secrets create-sa-secret --strict private-zookeeper.pem zookeeper /kafka-zookeeper/private-zookeeper
 
 # Deploy zookeeper
-dcos package install --yes kafka-zookeeper --options=options-zookeeper.json
+dcos package install --yes kafka-zookeeper --options=options-zookeeper.json --package-version=2.3.0-3.4.12
 ./check-status.sh kafka-zookeeper
 
 # Create the kafka service account
@@ -76,7 +76,7 @@ dcos security org users grant kafka dcos:mesos:master:task:user:nobody create
 dcos security secrets create-sa-secret --strict private-kafka.pem kafka /kafka/private-kafka
 
 # Deploy kafka
-dcos package install --yes kafka --options=options-kafka.json
+dcos package install --yes kafka --options=options-kafka.json --package-version=2.3.0-1.1.0
 ./check-status.sh kafka
 
 # Create the spark service account
@@ -91,7 +91,7 @@ dcos security org users grant spark dcos:mesos:master:task:user:nobody create
 ./check-status.sh hdfs
 
 # Deploy spark
-dcos package install --yes spark --options=options-spark.json
+dcos package install --yes spark --options=options-spark.json --package-version=2.3.1-2.2.1-2
 ./check-app-status.sh spark
 
 # Create the secrets for the spark TLS Artifacts
